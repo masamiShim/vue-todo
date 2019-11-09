@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>TODO LIST</title>
+    <link rel="stylesheet" href="dist/css/app.css">
+    <script src="https://use.fontawesome.com/e3ae05b8e6.js"></script>
+</head>
+<body>
+<div class="main">
+    <h1 class="mainTitle">TODOS</h1>
+    <section class="section">
+        <div id="app1">
+            {{ message }}
+        </div>
+    </section>
+
+    <section class="section">
+        <div id="app2">
+            <span :title="message" :class="classObject">
+                この文字にマウスホバーすると画面を表示した日付が出る
+            </span>
+        </div>
+    </section>
+    <section class="section">
+        <div id="app3">
+            <span v-if="isShow">
+                v-ifでDOMの表示非表示が簡単にできる
+            </span>
+        </div>
+    </section>
+    <section class="section">
+        <div id="app4">
+            <ul v-for="todo in todos">
+                <li>{{ todo.text}}</li>
+            </ul>
+        </div>
+    </section>
+    <section class="section">
+        <div id="app5">
+            <p>{{message}}</p>
+            <button @click="changeMessage">メッセージを変える
+            </button>
+        </div>
+
+    </section>
+    <section class="section">
+        <div id="app6">
+            <p>{{message}}</p>
+            <input type="text" v-model="message"/>
+        </div>
+
+    </section>
+    <script src="dist/js/bundle.js"></script>
+</div>
+</body>
+</html>

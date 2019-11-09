@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>TODO LIST</title>
+    <link rel="stylesheet" href="dist/css/app.css">
+    <script src="https://use.fontawesome.com/e3ae05b8e6.js"></script>
+</head>
+<body>
+<div class="main">
+    <h1 class="mainTitle">TODOS</h1>
+    <section class="section">
+        <div id="app1">
+            <span v-if="isShow === 'a'">aの場合これが表示</span>
+            <span v-else-if="isShow === 'b'">bの場合これが表示</span>
+            <span v-else>その他の場合これが表示</span>
+        </div>
+    </section>
+
+    <section class="section">
+        <div id="app2">
+            <span v-show="isShow">
+                isShow = trueで表示
+            </span>
+            <span v-show="!isShow">
+                isShow = falseで表示
+            </span>
+        </div>
+    </section>
+    <section class="section">
+        <div id="app3">
+            <input type="checkbox" v-model="isShow">
+            <p>isShow: {{isShow}}</p>
+            <p>showString: {{showString}}</p>
+            <p>showStringMethods: {{showStringMethods()}}</p>
+            <p>showString2: {{showString2}}</p>
+            <p>showStringMethods2: {{showStringMethods2()}}</p>
+        </div>
+    </section>
+    <section class="section">
+        <div id="app4">
+            <p>{{script}}</p>
+            <p v-html="script"></p>
+        </div>
+    </section>
+    <!-- vue固有のクラスを指定してあげて、スタイルを決めればよろし
+         transitionにnameをつけると接頭語がnameで指定したものになる。
+         なければv-enter-activeとか
+     -->
+    <style>
+        .fade-ender-active, .fade-leave-active {
+            transition: opacity .5s;
+        }
+
+        .fade-ender, .fade-leave-to {
+            opacity: 0;
+        }
+    </style>
+    <section class="section">
+        <div id="app5">
+            <button @click="show = !show">Toggle
+            </button>
+            <transition name="fade">
+                <p v-if="show">hello</p>
+            </transition>
+        </div>
+
+    </section>
+    <section class="section">
+        <div id="app6">
+            <button-counter></button-counter>
+            <button-counter></button-counter>
+            <button-counter></button-counter>
+        </div>
+
+    </section>
+    <section class="section">
+        <div id="app7">
+            <blog-post title="こうやってtitleプロパティをpropsで渡せます。"></blog-post>
+            <blog-post title="こうやってtitleプロパティをpropsで渡せます２。"></blog-post>
+            <blog-post title="こうやってtitleプロパティをpropsで渡せます３。"></blog-post>
+        </div>
+    </section>
+    <section class="section">
+        <div id="app8">
+            <div>
+                <div :style="{ fontSize: postFontSize + 'em'}">
+                <blog-post v-for="post in posts"
+                           @enlarge-text="fontSizeScale()"
+                           :key="post.id"
+                           :post="post"></blog-post>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="dist/js/bundle.js"></script>
+</div>
+</body>
+</html>

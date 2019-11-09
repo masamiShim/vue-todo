@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>TODO LIST</title>
+    <link rel="stylesheet" href="dist/css/app.css">
+    <script src="https://use.fontawesome.com/e3ae05b8e6.js"></script>
+</head>
+<body>
+<div id="app1" class="main">
+    <h1 class="mainTitle">TODOS</h1>
+    <section class="section">
+        <todo-creator @callback-add-task="addTask"></todo-creator>
+    </section>
+
+    <section class="section">
+        <search @callback-changed-condition="changedCondition"></search>
+    </section>
+    <section class="section">
+        <ul>
+            <todo-list
+                    :todos="filteredTask()" @callback-remove="removeTask"></todo-list>
+        </ul>
+    </section>
+</div>
+<script src="dist/js/bundle.js"></script>
+</body>
+</html>

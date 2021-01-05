@@ -32,7 +32,7 @@
     "vue-devtools": "^3.1.9",
     "webpack": "^3.9.1",
     "webpack-stream": "^4.0.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "axios-jsonp": "^1.0.2"
   },
   "babel": {
